@@ -5,11 +5,10 @@ request.onreadystatechange = function() {
 
 	// When the readyState is 4 that means the request has completed
 	if (request.readyState == 4 && request.status == 200) {
-		var stuff = JSON.parse(request.responseText);
+		var jsObject = JSON.parse(request.responseText);
 		var title;
-		var arrayOfTitles = [];
-		for (keys in stuff.data.children) {
-			title = stuff.data.children[keys].data.title;
+		for (index in jsObject.data.children) {
+			title = jsObject.data.children[index].data.title;
 			$("div").append(title);
 			$("div").append("<br><br>")
 		}
